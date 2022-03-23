@@ -10,7 +10,6 @@ def decrypt(cipher_text, rand, list) -> str:
     print(f'密文: {cipher_text}')
     index = 0
     list_temp = list
-    print(list_temp)
     char_values = []
     mod_values = []
     values = []
@@ -32,17 +31,16 @@ def decrypt(cipher_text, rand, list) -> str:
             if char == '@':
                 char = '0'
             mod_values.append(int(char))
-            # key = 19 * rand + int(char)
     for i in range(len(list_temp)):
         ascii_value = quo_values[i] * rand + mod_values[i]
         plain_text += chr(ascii_value)
 
-    print(f'Quotient: {quo_values}')
-    print(f'Values: {values}')
-    print(f'Keys: {keys}')
-    print(f'Char: {char_values}')
-    print(f'Modulo: {mod_values}')
-    print(f'Plain_Text: {plain_text}')
+    # print(f'Quotient: {quo_values}')
+    # print(f'Values: {values}')
+    # print(f'Keys: {keys}')
+    # print(f'Char: {char_values}')
+    # print(f'Modulo: {mod_values}')
+    print(f'明文: {plain_text}')
 
     return plain_text
 
@@ -55,7 +53,7 @@ def encrypt(plain_text, rand) -> Tuple[str, List[int]]:
     char_values = []
     char_quo_values = []
     print(f'明文: {plain_text}')
-    print(f'Random: {rand}')
+    # print(f'Random: {rand}')
     for character in plain_text:
         ascii_values.append(ord(character))       # Ascii = Quotient * rand + Modulo
         quo_value = floor(ord(character) / rand)  # Quotient
@@ -69,11 +67,11 @@ def encrypt(plain_text, rand) -> Tuple[str, List[int]]:
         mod_values.append(mod_value)
         char_values.append(char)
         cipher_text += (char + str(mod_value))
-    print(f'Char Quotients: {char_quo_values}')
-    print(f'Ascii: {ascii_values}')
-    print(f'Quotient: {quo_values}')
-    print(f'Char: {char_values}')
-    print(f'Modulo: {mod_values}')
+    # print(f'Char Quotients: {char_quo_values}')
+    # print(f'Ascii: {ascii_values}')
+    # print(f'Quotient: {quo_values}')
+    # print(f'Char: {char_values}')
+    # print(f'Modulo: {mod_values}')
     print(f'密文: {cipher_text}')
 
     return cipher_text, char_quo_values
